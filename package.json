@@ -1,6 +1,6 @@
 {
-  "homepage": "https://bernardobpl.github.io/dnd-kit-nesting-example/ ",
-  "name": "dnd-test",
+  "homepage": "https://bernardobpl.github.io/dnd-kit-nesting-example/",
+  "name": "dnd-kit-nesting-example",
   "private": true,
   "version": "0.0.0",
   "type": "module",
