@@ -11,6 +11,7 @@ type SortableGroupProps = {
   toggleAccordion: (groupId: string) => void
 }
 export const SortableGroup = ({group, nestedViewIds, activeDrag, isExpanded, toggleAccordion}: SortableGroupProps) => {
+  const nestedItems = [...nestedViewIds,'empty']
   return (
     <SortableItem id={group.id} key={group.id} isGroup>
       <Accordion 
@@ -25,7 +26,7 @@ export const SortableGroup = ({group, nestedViewIds, activeDrag, isExpanded, tog
           {isExpanded &&
             <SortableContext
               id={group.id}
-              items={nestedViewIds}
+              items={nestedItems}
               strategy={verticalListSortingStrategy}
             >
               <div 
@@ -34,7 +35,10 @@ export const SortableGroup = ({group, nestedViewIds, activeDrag, isExpanded, tog
                   width: '100%',
                 }}
               >
-                {nestedViewIds.map((viewId) => {
+                {nestedItems.map((viewId) => {
+                  if(viewId === 'empty') {
+                    return <SortableItem key={viewId} id={viewId} isEmpty>+</SortableItem>
+                  }
                   const view = VIEWS[viewId]
                   return (
                     <SortableItem key={view.id} id={view.id}>{view.title}</SortableItem>

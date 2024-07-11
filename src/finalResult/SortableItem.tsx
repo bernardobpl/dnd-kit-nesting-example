@@ -1,7 +1,7 @@
 import {useSortable} from '@dnd-kit/sortable';
 import {CSS} from '@dnd-kit/utilities';
 
-export function SortableItem(props: {children?: React.ReactNode, id: string, isGroup?: boolean}) {
+export function SortableItem(props: {children?: React.ReactNode, id: string, isGroup?: boolean, isEmpty?: boolean}) {
   const {
     attributes,
     listeners,
@@ -19,7 +19,7 @@ export function SortableItem(props: {children?: React.ReactNode, id: string, isG
     <div
       ref={setNodeRef} 
       {...attributes} 
-      {...listeners}
+      {...(!props?.isEmpty && listeners)}
       style={{
         ...style,
         ...(!props.isGroup && {height: '60px'}),

@@ -37,7 +37,7 @@ export const ORDER: OrderItemT[] = [
   {
     id: 'group-2',
     type: 'group',
-    views: ['view-6','view-7','view-8'],
+    views: [],
   },
   {
     id: 'view-4',

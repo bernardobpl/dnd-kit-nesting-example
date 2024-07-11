@@ -82,7 +82,7 @@ export default function App() {
     const overData = over.data.current.sortable as SortEventItemT
     const activeData = active.data.current.sortable as SortEventItemT
 
-    if(overData.containerId.includes('group')) {
+    if(overData.containerId.includes('group') && !active.id.toString().includes('group')) {
       setDbOrder((items) => {
         return items.filter(v => v.id !== active.id).map((item) => {
           if(item.id === overData.containerId){
